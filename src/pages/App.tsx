@@ -29,6 +29,7 @@ import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 // import Price from './Price'
 import Menu from '../components/Menu'
+import Footer from '../components/Footer'
 import UserBlock from '../components/UserBlock'
 
 const AppWrapper = styled.div`
@@ -113,6 +114,7 @@ export default function App() {
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>
+        <Footer />
       </HashRouter>
     </Suspense>
   )

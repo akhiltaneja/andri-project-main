@@ -42,7 +42,7 @@ const StyledDataArea = styled.div`
 const StyledTokenInfoArea = styled.div`
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.tertiary};
-  width: 14%;
+  width: 15%;
   margin-right: 10px;
 `
 
@@ -52,11 +52,18 @@ const StyledChartArea = styled.div`
   width: 60%;
 `
 
-const StyledTradingHistoryArea = styled.div`
+const StyledADArea = styled.div`
   margin-left: 10px;
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.tertiary};
   width: 24%;
+  padding: 15px;
+`
+
+const StyledTradingHistoryArea = styled.div`
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.tertiary};
+  width: 100%;
   padding: 15px;
 `
 
@@ -131,6 +138,14 @@ const StyledTD = styled.td`
   border-bottom: 1px solid #ffffff;
   padding: 10px;
   padding-left: 0px;
+`
+
+const StyledBuyItem = styled.tr`
+  color: #22d49f;
+`
+
+const StyledSellItem = styled.tr`
+  color: #ff646d;
 `
 
 const Chart = () => {
@@ -211,40 +226,43 @@ const Chart = () => {
           </StyledTokenInfoItem>
         </StyledTokenInfoArea>
         <StyledChartArea id="tv_chart_container" />
-        <StyledTradingHistoryArea>
-          <StyledTradingHistoryTitle>Trading History</StyledTradingHistoryTitle>
-          <StyledTable>
-            <StyledThead>
-              <tr>
-                <StyledTH>Time</StyledTH>
-                <StyledTH>Traded</StyledTH>
-                <StyledTH>Token Price</StyledTH>
-                <StyledTH>Value</StyledTH>
-              </tr>
-            </StyledThead>
-            <tbody>
-              <tr>
-                <StyledTD>5m ago</StyledTD>
-                <StyledTD>10419.14 BOG</StyledTD>
-                <StyledTD>1.260 USD</StyledTD>
-                <StyledTD>$13,132.068</StyledTD>
-              </tr>
-              <tr>
-                <StyledTD>5m ago</StyledTD>
-                <StyledTD>10419.14 BOG</StyledTD>
-                <StyledTD>1.260 USD</StyledTD>
-                <StyledTD>$13,132.068</StyledTD>
-              </tr>
-              <tr>
-                <StyledTD>5m ago</StyledTD>
-                <StyledTD>10419.14 BOG</StyledTD>
-                <StyledTD>1.260 USD</StyledTD>
-                <StyledTD>$13,132.068</StyledTD>
-              </tr>
-            </tbody>
-          </StyledTable>
-        </StyledTradingHistoryArea>
+        <StyledADArea>
+          <Image src="images/Background.png" width={350} height={580} responsive />
+        </StyledADArea>
       </StyledDataArea>
+      <StyledTradingHistoryArea>
+        <StyledTradingHistoryTitle>Trading History</StyledTradingHistoryTitle>
+        <StyledTable>
+          <StyledThead>
+            <tr>
+              <StyledTH>Time</StyledTH>
+              <StyledTH>Traded</StyledTH>
+              <StyledTH>Token Price</StyledTH>
+              <StyledTH>Value</StyledTH>
+            </tr>
+          </StyledThead>
+          <tbody>
+            <StyledBuyItem>
+              <StyledTD>5m ago</StyledTD>
+              <StyledTD>10419.14 BOG</StyledTD>
+              <StyledTD>1.260 USD</StyledTD>
+              <StyledTD>$13,132.068</StyledTD>
+            </StyledBuyItem>
+            <StyledSellItem>
+              <StyledTD>15m ago</StyledTD>
+              <StyledTD>213.12 BOG</StyledTD>
+              <StyledTD>0.21 USD</StyledTD>
+              <StyledTD>$123.12</StyledTD>
+            </StyledSellItem>
+            <StyledBuyItem>
+              <StyledTD>20m ago</StyledTD>
+              <StyledTD>10564.14 BOG</StyledTD>
+              <StyledTD>1.390 USD</StyledTD>
+              <StyledTD>$14.895.15</StyledTD>
+            </StyledBuyItem>
+          </tbody>
+        </StyledTable>
+      </StyledTradingHistoryArea>
     </>
   )
 }

@@ -12,12 +12,12 @@ const config: MenuEntry[] = [
   //   icon: 'TradeIcon',
   //   disable: false,
   //   items: [
-  {
-    label: 'Swap',
-    icon: 'TradeIcon',
-    href: '/swap',
-    disable: false,
-  },
+  // {
+  //   label: 'Swap',
+  //   icon: 'TradeIcon',
+  //   href: '/swap',
+  //   disable: false,
+  // },
   // {
   //   label: 'Limit',
   //   icon: 'TradeIcon',
