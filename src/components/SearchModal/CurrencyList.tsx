@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@pancakeswap-libs/sdk'
+import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@pancakeswap-libs/sdk-v2'
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'
@@ -129,6 +129,14 @@ function CurrencyRow({
               >
                 (Remove)
               </LinkStyledButton>
+              <LinkStyledButton
+                onClick={(event) => {
+                  event.stopPropagation()
+                  if (chainId && currency instanceof Token) removeToken(chainId, currency.address)
+                }}
+              >
+                (Check)
+              </LinkStyledButton>
             </Main>
           ) : null}
           {!isOnSelectedList && !customAdded && !(currency instanceof WrappedTokenInfo) ? (
@@ -141,6 +149,14 @@ function CurrencyRow({
                 }}
               >
                 (Add)
+              </LinkStyledButton>
+              <LinkStyledButton
+                onClick={(event) => {
+                  event.stopPropagation()
+                  if (currency instanceof Token) addToken(currency)
+                }}
+              >
+                (Check)
               </LinkStyledButton>
             </Main>
           ) : null}

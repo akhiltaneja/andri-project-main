@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import useTheme from 'hooks/useTheme'
 import { Button, Flex, Input, Text } from '@pancakeswap-libs/uikit'
 import { useUserSlippageTolerance } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
@@ -62,6 +63,8 @@ const SlippageToleranceSettings = () => {
   const [value, setValue] = useState(userSlippageTolerance / 100)
   const [error, setError] = useState<string | null>(null)
 
+  const { isDark, toggleTheme } = useTheme()
+
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const { value: inputValue } = evt.target
     setValue(parseFloat(inputValue))
@@ -99,7 +102,7 @@ const SlippageToleranceSettings = () => {
         </Text>
         <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." />
       </Label>
-      <Options>
+      {isDark === true && <Options>
         <Flex mb={['8px', 0]} mr={[0, '8px']}>
           {predefinedValues.map(({ label, value: predefinedValue }) => {
             const handleClick = () => setValue(predefinedValue)
@@ -131,7 +134,42 @@ const SlippageToleranceSettings = () => {
             </Option>
           </Flex>
         </FlexInput>
-      </Options>
+      </Options>}
+
+      {isDark === false && <Options>
+        <Flex mb={['8px', 0]} mr={[0, '8px']}>
+          {predefinedValues.map(({ label, value: predefinedValue }) => {
+            const handleClick = () => setValue(predefinedValue)
+            return (
+              <Option key={predefinedValue}  >
+                <StyledButton variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}  className="light-mode-button-general-style-new">
+                  {label}
+                </StyledButton>
+              </Option>
+            )
+          })}
+        </Flex>
+        <FlexInput>
+          <Flex alignItems="center">
+            <Option>
+              <Input
+                type="number"
+                scale="md"
+                step={0.5}
+                min={0.1}
+                placeholder="5%"
+                value={value}
+                onChange={handleChange}
+                isWarning={error !== null}
+              />
+            </Option>
+            <Option>
+              <Text fontSize="18px">%</Text>
+            </Option>
+          </Flex>
+        </FlexInput>
+      </Options>}
+
       {error && (
         <Text mt="8px" color="failure">
           {error}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom'
-import { Token, TokenAmount, WETH } from '@pancakeswap-libs/sdk'
+import { Token, TokenAmount, WETH } from '@pancakeswap-libs/sdk-v2'
 import { Button, Text } from '@pancakeswap-libs/uikit'
 import { AutoColumn } from '../Column'
 import { RowBetween, RowFixed } from '../Row'

@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap-libs/sdk'
+import { ChainId } from '@pancakeswap-libs/sdk-v2'
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { Button, LinkExternal } from '@pancakeswap-libs/uikit'
@@ -27,7 +27,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash }: TransactionSu
           {chainId && hash && (
             <LinkExternal href={getEtherscanLink(chainId, hash, 'transaction')}>View on bscscan</LinkExternal>
           )}
-          <Button onClick={onDismiss} mt="20px">
+          <Button onClick={onDismiss} mt="20px" className="hidend-button-wallet-custome-style-new">
             Close
           </Button>
         </AutoColumn>

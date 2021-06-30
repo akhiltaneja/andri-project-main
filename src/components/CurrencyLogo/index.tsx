@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@pancakeswap-libs/sdk'
+import { Currency, ETHER, Token } from '@pancakeswap-libs/sdk-v2'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 
@@ -6,10 +6,9 @@ import EthereumLogo from '../../assets/images/binance-logo.png'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
-import CoinLogo from "../pancake/CoinLogo"
+import CoinLogo from '../pancake/CoinLogo'
 
-const getTokenLogoURL = (address: string) =>
-  `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/assets/${address}/logo.png`
+const getTokenLogoURL = (address: string) => `images/assets/${address}/logo.png`
 
 const StyledEthereumLogo = styled.img<{ size: string }>`
   width: ${({ size }) => size};
@@ -26,7 +25,7 @@ const StyledLogo = styled(Logo)<{ size: string }>`
 export default function CurrencyLogo({
   currency,
   size = '24px',
-  style
+  style,
 }: {
   currency?: Currency
   size?: string

@@ -1,12 +1,12 @@
 import { MenuEntry } from '@pancakeswap-libs/uikit'
 
 const config: MenuEntry[] = [
-  // {
-  //   label: 'Home',
-  //   icon: 'HomeIcon',
-  //   href: 'https://windswap.finance/',
-  //   disable: false,
-  // },
+  {
+    label: 'Home',
+    icon: 'HomeIcon',
+    href: 'https://app.tokencharts.io/',
+    disable: false,
+  },
   // {
   //   label: 'Trade',
   //   icon: 'TradeIcon',
@@ -19,21 +19,27 @@ const config: MenuEntry[] = [
   //   disable: false,
   // },
   // {
-  //   label: 'Limit',
-  //   icon: 'TradeIcon',
-  //   href: '/limit',
-  //   disable: false,
-  // },
-  // {
   //   label: 'Pool',
   //   icon: 'TradeIcon',
   //   href: '/pool',
   //   disable: false,
   // },
   {
-    label: 'Charts',
+    label: 'Chart',
     icon: 'TradeIcon',
     href: '/chart',
+    disable: false,
+  },
+  {
+    label: 'Telegram',
+    icon: 'TelegramIcon',
+    href: '/telegram',
+    disable: false,
+  },
+  {
+    label: 'Blog',
+    icon: 'BlogIcon',
+    href: '/blog',
     disable: false,
   },
   // {

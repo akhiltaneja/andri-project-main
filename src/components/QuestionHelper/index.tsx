@@ -13,7 +13,7 @@ const QuestionWrapper = styled.div`
   outline: none;
   cursor: default;
   border-radius: 36px;
-  color: #ffffff;
+  color: #444ca8;
 
   :hover,
   :focus {

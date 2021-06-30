@@ -14,7 +14,7 @@ const defaultOnDismiss = () => null
 
 const SettingsModal = ({ onDismiss = defaultOnDismiss, translateString }: SettingsModalProps) => {
   return (
-    <Modal title="Settings" onDismiss={onDismiss}>
+    <Modal title="Settings" onDismiss={onDismiss} >
       <SlippageToleranceSetting />
       <TransactionDeadlineSetting />
       <AudioSetting translateString={translateString} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trade, TradeType } from '@pancakeswap-libs/sdk'
+import { Trade, TradeType } from '@pancakeswap-libs/sdk-v2'
 import { Card, CardBody, Text } from '@pancakeswap-libs/uikit'
 import { Field } from '../../state/swap/actions'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
@@ -21,22 +21,22 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
       <CardBody>
         <RowBetween>
           <RowFixed>
-            <Text fontSize="14px">{isExactIn ? 'Minimum received' : 'Maximum sold'}</Text>
+            <Text fontSize="14px" style={{ color: "#444ca8" }}>{isExactIn ? 'Minimum received' : 'Maximum sold'}</Text>
             <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." />
           </RowFixed>
           <RowFixed>
             <Text fontSize="14px">
               {isExactIn
                 ? `${slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(4)} ${trade.outputAmount.currency.symbol}` ??
-                  '-'
+                '-'
                 : `${slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4)} ${trade.inputAmount.currency.symbol}` ??
-                  '-'}
+                '-'}
             </Text>
           </RowFixed>
         </RowBetween>
         <RowBetween>
           <RowFixed>
-            <Text fontSize="14px">Price Impact</Text>
+            <Text fontSize="14px" style={{ color: "#444ca8" }}>Price Impact</Text>
             <QuestionHelper text="The difference between the market price and estimated price due to trade size." />
           </RowFixed>
           <FormattedPriceImpact priceImpact={priceImpactWithoutFee} />
@@ -44,7 +44,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
 
         <RowBetween>
           <RowFixed>
-            <Text fontSize="14px">Liquidity Provider Fee</Text>
+            <Text fontSize="14px" style={{ color: "#444ca8" }}>Liquidity Provider Fee</Text>
             <QuestionHelper text="For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the PancakeSwap treasury." />
           </RowFixed>
           <Text fontSize="14px">

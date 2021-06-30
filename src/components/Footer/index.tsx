@@ -29,7 +29,7 @@ const Footer: React.FC = (props) => {
         <TwitterIcon />
         <RedditIcon />
       </SytledSocialItems>
-      <SytledOtherDescription>Copyright &copy; 2021 Made by Andrii</SytledOtherDescription>
+      <SytledOtherDescription>Copyright &copy; 2021 tokencharts.io | Version Beta 00033</SytledOtherDescription>
     </SytledFooter>
   )
 }

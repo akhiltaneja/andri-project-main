@@ -5,7 +5,7 @@ import { ButtonMenu, ButtonMenuItem } from '@pancakeswap-libs/uikit'
 import TranslatedText from '../TranslatedText'
 
 const StyledNav = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   text-align: center;
 `
 

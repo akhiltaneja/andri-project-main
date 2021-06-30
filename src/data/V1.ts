@@ -14,7 +14,7 @@ import {
   Trade,
   TradeType,
   WETH,
-} from '@pancakeswap-libs/sdk'
+} from '@pancakeswap-libs/sdk-v2'
 import { useMemo } from 'react'
 import { useActiveWeb3React } from '../hooks'
 import { useAllTokens } from '../hooks/Tokens'

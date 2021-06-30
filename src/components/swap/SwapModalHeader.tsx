@@ -1,8 +1,9 @@
 import React, { useContext, useMemo } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { Trade, TradeType } from '@pancakeswap-libs/sdk'
+import { Trade, TradeType } from '@pancakeswap-libs/sdk-v2'
 import { Button, Text } from '@pancakeswap-libs/uikit'
 import { ArrowDown, AlertTriangle } from 'react-feather'
+import useTheme from 'hooks/useTheme'
 
 import { Field } from '../../state/swap/actions'
 import { TYPE } from '../Shared'
@@ -44,6 +45,7 @@ export default function SwapModalHeader({
   ])
   const { priceImpactWithoutFee } = useMemo(() => computeTradePriceBreakdown(trade), [trade])
   const priceImpactSeverity = warningSeverity(priceImpactWithoutFee)
+  const { isDark, toggleTheme } = useTheme()
 
   const theme = useContext(ThemeContext)
 
@@ -71,19 +73,33 @@ export default function SwapModalHeader({
       <RowBetween align="flex-end">
         <RowFixed gap="0px">
           <CurrencyLogo currency={trade.outputAmount.currency} size="24px" style={{ marginRight: '12px' }} />
-          <Text
+          {isDark === true && <Text
             fontSize="24px"
-            style={{ marginLeft: '10px', fontWeight: 500 }}
+            style={{ marginLeft: '10px', fontWeight: 500, color: "white" }}
             color={
               priceImpactSeverity > 2
                 ? theme.colors.failure
                 : showAcceptChanges && trade.tradeType === TradeType.EXACT_INPUT
-                ? theme.colors.primary
-                : 'text'
+                  ? theme.colors.primary
+                  : 'text'
             }
           >
             {trade.outputAmount.toSignificant(6)}
-          </Text>
+          </Text>}
+          {isDark === false && <Text
+            fontSize="24px"
+            style={{ marginLeft: '10px', fontWeight: 500, color: "#444CA8" }}
+            color={
+              priceImpactSeverity > 2
+                ? theme.colors.failure
+                : showAcceptChanges && trade.tradeType === TradeType.EXACT_INPUT
+                  ? theme.colors.primary
+                  : 'text'
+            }
+          >
+            {trade.outputAmount.toSignificant(6)}
+          </Text>}
+
         </RowFixed>
         <RowFixed gap="0px">
           <Text fontSize="24px" style={{ marginLeft: '10px', fontWeight: 500 }}>
@@ -98,7 +114,7 @@ export default function SwapModalHeader({
               <AlertTriangle size={20} style={{ marginRight: '8px', minWidth: 24 }} />
               <Main color={theme.colors.primary}> Price Updated</Main>
             </RowFixed>
-            <Button onClick={onAcceptChanges}>Accept</Button>
+            <Button onClick={onAcceptChanges} className="hidend-button-wallet-custome-style-new">Accept</Button>
           </RowBetween>
         </SwapShowAcceptChanges>
       ) : null}

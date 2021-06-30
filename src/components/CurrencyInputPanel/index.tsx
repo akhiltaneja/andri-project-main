@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { Currency, Pair } from '@pancakeswap-libs/sdk'
+import { Currency, Pair } from '@pancakeswap-libs/sdk-v2'
 import { Button, ChevronDownIcon, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import { darken } from 'polished'
@@ -147,7 +147,7 @@ export default function CurrencyInputPanel({
             <DetailArea style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={disableCurrencySelect}>
               <StyledDestinationText fontSize="14px">{label}</StyledDestinationText>
               <NumericalInput
-                className="token-amount-input"
+                className="token-amount-input iphone-5-max-width-size-style-new"
                 value={value}
                 onUserInput={(val) => {
                   onUserInput(val)
