@@ -23,9 +23,9 @@ const StyledADSection = styled(Image)`
 `
 
 const props = {
-  name: 'WindSwap',
-  address: '0xd1587ee50e0333f0c4adcf261379a61b1486c5d2',
-  symbol: 'WINDY',
+  name: 'PancakeSwap Token',
+  address: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+  symbol: 'CAKE',
 }
 
 const Chart = () => {
